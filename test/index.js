@@ -18,5 +18,5 @@ describe('HelloWorld', () => {
     const component = shallow(<HelloWorld name={name} />);
 
     expect(component.find('h1').text()).to.equal('Hello, World!');
-  })
+  });
 });
