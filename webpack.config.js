@@ -1,15 +1,21 @@
+const path = require('path');
+
 module.exports = {
   entry: {
-    main: "./app/app.js"
+    main: './lib/index.js',
+    test: 'mocha!./test/index.js'
   },
   output: {
-    filename: "app.js",
-    path: __dirname + "/dist",
+    path: './public',
+    filename: '[name].bundle.js'
   },
   module: {
     loaders: [
       { test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader'] },
       { test: /\.css$/, loader: 'style-loader!css-loader' }
     ]
+  },
+  resolve: {
+    extensions: ['', '.js', '.json', '.scss', 'css']
   }
-}
+};
