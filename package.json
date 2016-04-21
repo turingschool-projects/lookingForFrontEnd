@@ -1,11 +1,9 @@
 {
   "name": "react-playground",
   "version": "1.0.0",
-  "description": "Webpack, Express, React, Babel 6, Mocha, Enzyme boilerplate",
+  "description": "Super simple React starter repo",
   "main": "server.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --compilers js:babel-register",
-    "test:watch": "./node_modules/mocha/bin/mocha --watch --compilers js:babel-register",
     "dev": "webpack-dev-server --content-base public/ --progress --colors",
     "start": "nodemon server.js"
   },
@@ -26,16 +24,8 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-register": "^6.3.13",
-    "chai": "^3.2.0",
-    "enzyme": "^1.2.0",
-    "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^2.0.0",
-    "eslint-plugin-react": "^3.11.3",
-    "mocha": "^2.2.5",
-    "mocha-loader": "^0.7.1",
     "node-libs-browser": "^0.5.2",
-    "react-addons-test-utils": "^0.14.3",
-    "sinon": "^1.17.2",
+    "nodemon": "^1.9.1",
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
@@ -46,10 +36,5 @@
     "style-loader": "^0.12.4",
     "css-loader": "^0.15.5",
     "webpack": "^1.12.9"
-  },
-  "eslintConfig": {
-    "env": {
-      "mocha": true
-    }
   }
 }
