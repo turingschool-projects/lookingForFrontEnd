@@ -43,6 +43,7 @@
     "react-bootstrap": "^0.29.4",
     "react-dom": "^0.14.3",
     "style-loader": "^0.12.4",
-    "webpack": "^1.12.9"
+    "webpack": "^1.12.9",
+    "react-router": "^2.4.1"
   }
 }
