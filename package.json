@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "webpack-dev-server --content-base public/ --progress --colors",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,9 @@
   "devDependencies": {
     "babel": "^6.3.13",
     "babel-core": "^6.3.15",
+    "babel-jest": "^12.1.0",
     "babel-loader": "^6.2.0",
+    "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-register": "^6.3.13",
@@ -30,6 +33,7 @@
     "eslint-plugin-import": "^1.8.1",
     "eslint-plugin-jsx-a11y": "^1.2.2",
     "eslint-plugin-react": "^5.1.1",
+    "jest-cli": "^12.1.1",
     "node-libs-browser": "^0.5.2",
     "nodemon": "^1.9.1",
     "webpack-dev-server": "^1.14.0"
