@@ -42,8 +42,8 @@
     "react-addons": "^0.9.1-deprecated",
     "react-bootstrap": "^0.29.4",
     "react-dom": "^0.14.3",
+    "react-router": "^2.4.1",
     "style-loader": "^0.12.4",
-    "webpack": "^1.12.9",
-    "react-router": "^2.4.1"
+    "webpack": "^1.12.9"
   }
 }
