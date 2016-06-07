@@ -4,7 +4,7 @@
   "description": "Front end for Lookingfor app",
   "main": "server.js",
   "scripts": {
-    "dev": "webpack-dev-server --content-base public/ --progress --colors",
+    "dev": "webpack-dev-server --content-base public/ --progress --colors --history-api-fallback",
     "start": "nodemon server.js"
   },
   "repository": {
