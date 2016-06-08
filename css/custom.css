@@ -2,6 +2,14 @@
   font-family: 'Roboto', sans-serif;
 }
 
+body {
+  background-color: #5A6061;
+}
+
+a.navbar-brand {
+    font-size: x-large;
+}
+
 h2, h4, p  {
   font-weight: 300;
 }
@@ -11,7 +19,7 @@ h2, h4, p  {
 }
 
 .search-bar {
-    background-color: #660f12;
+    background-color: rgba(0, 0, 0, 0.1);
     position: absolute;
     right: 0;
     margin-right: 100px;
@@ -28,4 +36,8 @@ h2, h4, p  {
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.1);
     height: 100%;
+}
+
+a {
+    color: black;
 }
