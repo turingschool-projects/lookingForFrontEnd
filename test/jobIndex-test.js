@@ -8,9 +8,19 @@ import Header from '../lib/components/header';
 import JobListings from '../lib/components/jobListings';
 
 describe('<JobIndex />', () => {
-  it('contains a <Header /> component', function() {
-    sinon.spy(JobIndex.prototype, 'componentDidMount');
+  it('contains a <Header /> component', () => {
     const wrapper = mount(<JobIndex/>);
       expect(wrapper.find(Header)).to.have.length(1);
+  });
+
+  it('contains a <JobListing /> component', () => {
+    const wrapper = mount(<JobIndex/>);
+      expect(wrapper.find(JobListings)).to.have.length(1);
+  });
+
+  it('calls componentDidMount', () => {
+    sinon.spy(JobIndex.prototype, 'componentDidMount');
+    const wrapper = mount(<JobIndex />);
+    expect(JobIndex.prototype.componentDidMount.calledOnce).to.equal(true);
   });
 });
