@@ -3,15 +3,26 @@
 }
 
 body {
-  background-color: #5A6061;
+  background-color: #3C4040;
+}
+
+nav.navbar.navbar-default {
+  background-color: #70dde6;
 }
 
 a.navbar-brand {
-    font-size: x-large;
+  font-size: x-large;
 }
 
-h2, h4, p  {
+h2, h4, p, li  {
   font-weight: 300;
+}
+
+.job-buttons {
+  vertical-align: text-bottom;
+  padding-left: 50px;
+  display: inline-block;
+
 }
 
 .navbar {
@@ -19,25 +30,46 @@ h2, h4, p  {
 }
 
 .search-bar {
-    background-color: rgba(0, 0, 0, 0.1);
-    position: absolute;
-    right: 0;
-    margin-right: 100px;
+  background-color: #f4f4f4;
+  position: absolute;
+  right: 0;
+  margin-right: 100px;
 }
 
 .jobListing {
-    background: #f4f4f4;
-    padding: 20px;
-    border-radius: 4px;
-    margin: 30px 0;
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 30px 0;
 }
 
 .content {
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.1);
-    height: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #70dde6;
+  height: 100%;
+  text-align: center;
+  min-height: 100px;
+  padding-top: 10px;
 }
 
 a {
-    color: black;
+  color: black;
+}
+
+li {
+  text-align: left;
+}
+
+.navbar-default .navbar-brand {
+  color: black;
+  font-weight: 300;
+}
+
+.technologies-list {
+  display: inline-block;
+}
+
+.view-job-button {
+    margin-top: 23px;
 }
