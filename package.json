@@ -49,5 +49,12 @@
     "react-router": "^2.4.1",
     "style-loader": "^0.12.4",
     "webpack": "^1.12.9"
+  },
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react/",
+      "<rootDir>/node_modules/react-dom/",
+      "<rootDir>/node_modules/react-addons-test-utils/"
+    ]
   }
 }
