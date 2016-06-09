@@ -8,9 +8,6 @@ import Header from '../lib/components/header';
 import JobListings from '../lib/components/jobListings';
 
 
-function mockJobs(overrides) {
-
-}
 
 describe('<JobIndex />', () => {
   it('contains a <Header /> component', () => {
@@ -34,9 +31,15 @@ describe('<JobIndex />', () => {
     expect(wrapper.type()).to.eql('div');
   });
 
-  //it('sets the state of jobs', () => {
-    //const wrapper = shallow(<JobIndex jobs={jobs}/>);
-    //wrapper.setState({jobs: jobs});
-    //expect(wrapper.find(jobs)).to.have.length(3);
-  //});
+  it('should have props for jobListings', () => {
+    const wrapper = shallow(<JobIndex />);
+    expect(wrapper.props().jobs).to.be.defined;
+  });
+
+  it('sets the state of jobs', () => {
+    const jobsArray = ['job1', 'job2', 'job3']
+    const wrapper = mount(<JobIndex />);
+    wrapper.setState({jobs: jobsArray});
+    expect(wrapper.state('jobs')).to.equal(jobsArray);
+  });
 });
