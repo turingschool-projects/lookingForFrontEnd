@@ -28,7 +28,7 @@ describe('<Header />', () => {
     expect(wrapper.find('a')).to.have.length(1);
   });
 
-  it('contains a <SearchBar /> component', () => {
+  it('contains a class of nav', () => {
     const wrapper = shallow(<Header/>);
     expect(wrapper.hasClass('nav')).to.be.true;
   });
