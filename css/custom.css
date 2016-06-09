@@ -6,51 +6,8 @@ body {
   background-color: #3C4040;
 }
 
-nav.navbar.navbar-default {
-  background-color: #70dde6;
-}
-
-a.navbar-brand {
-  font-size: x-large;
-}
-
 h2, h4, p, li  {
   font-weight: 300;
-}
-
-.job-buttons {
-  vertical-align: text-bottom;
-  padding-left: 50px;
-  display: inline-block;
-
-}
-
-.navbar {
-  background-color: #f4f4f4;
-}
-
-.search-bar {
-  background-color: #f4f4f4;
-  position: absolute;
-  right: 0;
-  margin-right: 100px;
-}
-
-.jobListing {
-  background: #f4f4f4;
-  padding: 20px;
-  border-radius: 10px;
-  margin: 30px 0;
-}
-
-.content {
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #70dde6;
-  height: 100%;
-  text-align: center;
-  min-height: 100px;
-  padding-top: 10px;
 }
 
 a {
@@ -59,7 +16,16 @@ a {
 
 li {
   text-align: left;
-  list-style: none;
+}
+
+/* navbar */
+
+.navbar {
+  background-color: #f4f4f4;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  margin-bottom: 0;
 }
 
 .navbar-default .navbar-brand {
@@ -67,10 +33,82 @@ li {
   font-weight: 300;
 }
 
+nav.navbar.navbar-default {
+  background-color: #70dde6;
+}
+
+a.navbar-brand {
+  font-size: x-large;
+}
+
+.search-bar {
+  background-color: #f4f4f4;
+  position: absolute;
+  right: 100px;
+}
+
+/* buttons */
+
+.details-button {
+  position: relative;
+  top: 25px;
+}
+
+a:hover {
+  color: #3C4040;
+  text-decoration: none;
+}
+
+.job-buttons {
+  display: block;
+  max-width: 135px;
+  margin: 5px auto 0;
+}
+
+/* job listings */
+
+.job-title {
+  margin: 0 auto;
+}
+
+.job-listing {
+  background: #f4f4f4;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 30px 0;
+}
+
+.content {
+  background-color: #70dde6;
+  border-radius: 10px;
+  height: 100%;
+  margin: 10px 0;
+  min-height: 100px;
+  padding: 10px;
+  text-align: center;
+}
+
+.content p {
+  margin: 0;
+}
+
+.description {
+  text-align: left;
+  padding: 10px;
+}
+
 .technologies-list {
   display: inline-block;
 }
 
-.view-job-button {
-  margin-top: 23px;
+.column {
+  padding: 0 5px;
+}
+
+/* media queries */
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: auto;
+  }
 }
