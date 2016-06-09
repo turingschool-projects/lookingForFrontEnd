@@ -59,6 +59,7 @@ a {
 
 li {
   text-align: left;
+  list-style: none;
 }
 
 .navbar-default .navbar-brand {
@@ -71,5 +72,5 @@ li {
 }
 
 .view-job-button {
-    margin-top: 23px;
+  margin-top: 23px;
 }
