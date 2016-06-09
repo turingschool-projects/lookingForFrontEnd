@@ -6,6 +6,11 @@ body {
   background-color: #3C4040;
 }
 
+.container {
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
 h2, h4, p, li  {
   font-weight: 300;
 }
@@ -37,6 +42,10 @@ nav.navbar.navbar-default {
   background-color: #70dde6;
 }
 
+.nav {
+  padding-bottom: 50px;
+}
+
 a.navbar-brand {
   font-size: x-large;
 }
@@ -45,6 +54,9 @@ a.navbar-brand {
   background-color: #f4f4f4;
   position: absolute;
   right: 100px;
+  margin-right: 98px;
+  padding-left: 15px;
+  padding-right: 30px;
 }
 
 /* buttons */
