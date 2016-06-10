@@ -1,3 +1,6 @@
+const path = require('path')
+const webpack = require('webpack')
+
 module.exports = {
   entry: {
     main: './lib/index.js',
