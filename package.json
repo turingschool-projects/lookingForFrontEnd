@@ -2,11 +2,13 @@
   "name": "looking-for-front-end",
   "version": "1.0.0",
   "description": "Front end for Lookingfor app",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --content-base public/ --progress --colors --history-api-fallback",
     "start": "nodemon server.js",
-    "test": "mocha test/setup.js test/**/*-test.js"
+    "test": "mocha test/setup.js test/**/*-test.js",
+    "build": "webpack",
+    "postinstall": "webpack -p --config webpack.production.config.js"
   },
   "repository": {
     "type": "git",
