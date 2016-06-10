@@ -5,6 +5,8 @@
   "main": "server.js",
   "scripts": {
     "dev": "webpack-dev-server --content-base public/ --progress --colors --history-api-fallback",
+    "start": "node server",
+    "build": "webpack",
     "postinstall": "webpack -p --config webpack.prod.config.js"
   },
   "repository": {
