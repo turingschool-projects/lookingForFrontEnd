@@ -5,8 +5,8 @@ import {expect} from 'chai';
 import sinon from 'sinon';
 import TestUtils from "react-addons-test-utils";
 
-import JobListings from '../lib/components/jobListings';
-import Job from '../lib/components/job';
+import JobListings from '../lib/components/JobListings';
+import Job from '../lib/components/Job';
 
 
 const jobsArray = [

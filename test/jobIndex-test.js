@@ -4,8 +4,8 @@ import {expect} from 'chai';
 import sinon from 'sinon';
 
 import JobIndex from '../lib/components/JobIndex';
-import Header from '../lib/components/header';
-import JobListings from '../lib/components/jobListings';
+import Header from '../lib/components/Header';
+import JobListings from '../lib/components/JobListings';
 
 
 

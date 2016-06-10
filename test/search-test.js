@@ -4,7 +4,7 @@ import {expect} from 'chai';
 import sinon from 'sinon';
 import TestUtils from "react-addons-test-utils";
 
-import SearchBar from '../lib/components/searchBar';
+import SearchBar from '../lib/components/SearchBarAndListings';
 
 describe('<SearchBar />', () => {
   it('should have an input for search', () => {

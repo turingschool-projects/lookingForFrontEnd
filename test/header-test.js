@@ -4,8 +4,8 @@ import {expect} from 'chai';
 import sinon from 'sinon';
 import TestUtils from "react-addons-test-utils";
 
-import Header from '../lib/components/header';
-import SearchBar from '../lib/components/searchBar';
+import Header from '../lib/components/Header';
+import SearchBar from '../lib/components/SearchBarAndListings';
 
 describe('<Header />', () => {
   //before('render and locate element', () => {
