@@ -5,27 +5,13 @@ import sinon from 'sinon';
 import TestUtils from "react-addons-test-utils";
 
 import Header from '../lib/components/Header';
-import SearchBar from '../lib/components/SearchBarAndListings';
+import Link from 'react-router';
 
 describe('<Header />', () => {
-  //before('render and locate element', () => {
-    //var renderedComponent = TestUtils.renderIntoDocument(
-      //<Header />
-    //);
 
-    //// Searching for <input> tag within rendered React component
-    //// Throws an exception if not found
-    //var inputComponent = TestUtils.findRenderedDOMComponentWithTag(
-      //renderedComponent,
-      //'<SearchBar />'
-    //);
-
-    //this.inputElement = inputComponent.getDOMNode();
-  //});
-
-  it('should render an <a>', () => {
+  it('should render an <Link>', () => {
     const wrapper = mount(<Header/>);
-    expect(wrapper.find('a')).to.have.length(1);
+    expect(wrapper.find('Link')).to.have.length(1);
   });
 
   it('contains a class of nav', () => {
@@ -33,14 +19,9 @@ describe('<Header />', () => {
     expect(wrapper.hasClass('nav')).to.equal(true);
   });
 
-  it('has an <a> with LookingFor text', () => {
+  it('has an <Link> with LookingFor text', () => {
     const wrapper = shallow(<Header/>);
-    expect(wrapper.contains(<a href="#">Looking For</a>)).to.equal(true);
+    expect(wrapper.html()).to.equal(`<div class="nav"><nav class="navbar-fixed-top navbar navbar-default"><div class="container"><div id="brand" class="navbar-header"><a class="navbar-brand">Looking For</a></div></div></nav></div>`);
   });
-
-  //it('contains a <SearchBar/> component', () => {
-    //const wrapper = mount(<Header/>);
-    //expect(wrapper.contains(<SearchBar />)).to.equal(true);
-  //});
 });
 

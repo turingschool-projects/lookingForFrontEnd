@@ -19,7 +19,26 @@ describe('<SearchBar />', () => {
 
   it('contains a class of search-bar', () => {
     const wrapper = shallow(<SearchBar />);
-    expect(wrapper.hasClass('search-bar')).to.equal(true);
+    expect(wrapper.find('.search-bar').hasClass('search-bar')).to.equal(true);
+  });
+
+  it('handles a click event SendLocationRequest', () => {
+    sinon.spy(SearchBar.prototype, 'SendLocationRequest');
+    const wrapper = mount(<SearchBar />);
+    wrapper.find('.find-jobs-button').simulate('click')
+    expect(SearchBar.prototype.SendLocationRequest.calledOnce).to.equal(true);
+  });
+
+  it('should have props for jobListings', () => {
+    const wrapper = shallow(<SearchBar />);
+    expect(wrapper.props().jobs).to.be.defined;
+  });
+
+  it('sets the state of jobs', () => {
+    const jobsArray = ['job1', 'job2', 'job3']
+    const wrapper = mount(<SearchBar />);
+    wrapper.setState({jobs: jobsArray});
+    expect(wrapper.state('jobs')).to.equal(jobsArray);
   });
 });
 
