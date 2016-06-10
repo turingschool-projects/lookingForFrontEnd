@@ -4,7 +4,7 @@ module.exports = {
 
   },
   output: {
-    path: './public',
+    path: './public/home',
     filename: '[name].bundle.js',
   },
   module: {
@@ -17,3 +17,4 @@ module.exports = {
     extensions: ['', '.js', '.json', '.scss', 'css'],
   },
 };
+

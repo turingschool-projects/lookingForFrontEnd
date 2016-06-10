@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "webpack-dev-server --content-base public/ --progress --colors --history-api-fallback",
-    "start": "nodemon server.js"
+    "postinstall": "webpack -p --config webpack.prod.config.js"
   },
   "repository": {
     "type": "git",
