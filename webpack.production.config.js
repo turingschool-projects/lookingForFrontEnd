@@ -2,13 +2,14 @@ const path = require('path')
 const webpack = require('webpack')
 
 module.exports = {
+  devtool: 'source-map',
   entry: {
     main: './lib/index.js',
 
   },
   output: {
     path: './public',
-    filename: '[name].bundle.js',
+    filename: 'main.bundle.js',
   },
   module: {
     loaders: [
