@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #3C4040;
+  /*background-color: #A8A8A8;*/
 }
 
 .container {
@@ -51,11 +51,18 @@ a.navbar-brand {
 }
 
 .search-bar {
-  background-color: #f4f4f4;
-  position: absolute;
-  right: 100px;
-  padding-left: 15px;
-  padding-right: 30px;
+  background-color: #F0F0F0;
+  width: 600px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.search-bar-header{
+  display: inline-block;
+}
+
+.search-bar-input{
+  display: inline-block;
 }
 
 /* buttons */
