@@ -7,4 +7,3 @@ logs
 node_modules
 
 # Ignore bundled code
-*.bundle.js
