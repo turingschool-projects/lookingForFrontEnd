@@ -58,6 +58,38 @@ a.navbar-brand {
   padding-right: 30px;
 }
 
+/* footer */
+
+.footer {
+  background-color: #70dde6;
+  border-top: 1px solid #e7e7e7;
+  bottom: 0;
+  height: 50px;
+  position: fixed;
+  width: 100%;
+}
+
+.pagination {
+  margin: 7px 0;
+  position: absolute;
+  right: 100px;
+}
+
+.pagination>li>a {
+  color: #70dde6;
+}
+
+.pagination > li > a:hover {
+  color: #3C4040;
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover {
+  background-color: #3C4040;
+  border-color: #3C4040;
+}
+
 /* buttons */
 
 .details-button {
