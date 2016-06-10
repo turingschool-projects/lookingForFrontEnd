@@ -62,7 +62,7 @@
 
 	var _JobShow2 = _interopRequireDefault(_JobShow);
 
-	var _JobIndex = __webpack_require__(492);
+	var _JobIndex = __webpack_require__(491);
 
 	var _JobIndex2 = _interopRequireDefault(_JobIndex);
 
@@ -44585,7 +44585,7 @@
 	          'div',
 	          { className: 'container job-listing' },
 	          _react2.default.createElement(
-	            'h3',
+	            'h4',
 	            { className: 'job-title' },
 	            this.props.job.title
 	          ),
@@ -44862,11 +44862,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _SearchBar = __webpack_require__(491);
-
-	var _SearchBar2 = _interopRequireDefault(_SearchBar);
-
 	var _reactBootstrap = __webpack_require__(159);
+
+	var _reactRouter = __webpack_require__(424);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -44901,13 +44899,11 @@
 	              _reactBootstrap.Navbar.Brand,
 	              null,
 	              _react2.default.createElement(
-	                'a',
-	                { href: '#' },
+	                _reactRouter.Link,
+	                { to: '/' },
 	                'Looking For'
 	              )
-	            ),
-	            _react2.default.createElement(_SearchBar2.default, null),
-	            _react2.default.createElement(_reactBootstrap.Navbar.Toggle, null)
+	            )
 	          )
 	        )
 	      );
@@ -44931,75 +44927,6 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _reactBootstrap = __webpack_require__(159);
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var SearchBar = function (_React$Component) {
-	  _inherits(SearchBar, _React$Component);
-
-	  function SearchBar() {
-	    _classCallCheck(this, SearchBar);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SearchBar).call(this));
-	  }
-
-	  _createClass(SearchBar, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'search-bar' },
-	        _react2.default.createElement(
-	          _reactBootstrap.Navbar.Collapse,
-	          null,
-	          _react2.default.createElement(
-	            _reactBootstrap.Navbar.Form,
-	            { pullRight: true },
-	            _react2.default.createElement(
-	              _reactBootstrap.FormGroup,
-	              null,
-	              _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text', placeholder: 'Search jobs' })
-	            ),
-	            ' ',
-	            _react2.default.createElement(
-	              _reactBootstrap.Button,
-	              { type: 'submit' },
-	              'Submit'
-	            )
-	          )
-	        )
-	      );
-	    }
-	  }]);
-
-	  return SearchBar;
-	}(_react2.default.Component);
-
-	exports.default = SearchBar;
-
-/***/ },
-/* 492 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -45008,9 +44935,9 @@
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _JobListings = __webpack_require__(493);
+	var _SearchBarAndListings = __webpack_require__(492);
 
-	var _JobListings2 = _interopRequireDefault(_JobListings);
+	var _SearchBarAndListings2 = _interopRequireDefault(_SearchBarAndListings);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -45026,22 +44953,10 @@
 	  function JobIndex() {
 	    _classCallCheck(this, JobIndex);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(JobIndex).call(this));
-
-	    _this.state = { jobs: [] };
-	    return _this;
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(JobIndex).call(this));
 	  }
 
 	  _createClass(JobIndex, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      var _this2 = this;
-
-	      $.getJSON('https://lookingforme.herokuapp.com/api/v1/jobs', function (response) {
-	        _this2.setState({ jobs: response });
-	      });
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -45051,7 +44966,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'container' },
-	          _react2.default.createElement(_JobListings2.default, { jobs: this.state.jobs.jobs })
+	          _react2.default.createElement(_SearchBarAndListings2.default, null)
 	        )
 	      );
 	    }
@@ -45063,6 +44978,98 @@
 	;
 
 	exports.default = JobIndex;
+
+/***/ },
+/* 492 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _reactBootstrap = __webpack_require__(159);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _JobListings = __webpack_require__(493);
+
+	var _JobListings2 = _interopRequireDefault(_JobListings);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var SearchBarAndListings = function (_React$Component) {
+	  _inherits(SearchBarAndListings, _React$Component);
+
+	  function SearchBarAndListings() {
+	    _classCallCheck(this, SearchBarAndListings);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SearchBarAndListings).call(this));
+
+	    _this.state = { value: "" };
+	    _this.state = { jobs: {} };
+	    return _this;
+	  }
+
+	  _createClass(SearchBarAndListings, [{
+	    key: 'HandleChange',
+	    value: function HandleChange(event) {
+	      this.setState({ value: event.target.value });
+	    }
+	  }, {
+	    key: 'SendLocationRequest',
+	    value: function SendLocationRequest() {
+	      var _this2 = this;
+
+	      var search_location = this.state.value;
+	      $.getJSON("https://lookingforme.herokuapp.com/api/v1/recent_jobs?location=" + search_location, function (response) {
+	        _this2.setState({ jobs: response });
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'search-bar' },
+	          _react2.default.createElement(
+	            _reactBootstrap.FormGroup,
+	            null,
+	            _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text', placeholder: 'Search jobs by location', className: 'search-bar-input', onChange: this.HandleChange.bind(this) })
+	          ),
+	          _react2.default.createElement(
+	            _reactBootstrap.Button,
+	            { type: 'submit', onClick: this.SendLocationRequest.bind(this) },
+	            'Find jobs'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          this.state.jobs.recent_jobs !== undefined ? _react2.default.createElement(_JobListings2.default, { jobs: this.state.jobs.recent_jobs }) : ""
+	        )
+	      );
+	    }
+	  }]);
+
+	  return SearchBarAndListings;
+	}(_react2.default.Component);
+
+	exports.default = SearchBarAndListings;
 
 /***/ },
 /* 493 */
@@ -45104,7 +45111,7 @@
 	  _createClass(JobListings, [{
 	    key: 'render',
 	    value: function render() {
-	      if (this.props.jobs !== undefined) {
+	      if (this.props.jobs.length > 0) {
 	        return _react2.default.createElement(
 	          'div',
 	          null,
@@ -45114,9 +45121,9 @@
 	        );
 	      } else {
 	        return _react2.default.createElement(
-	          'div',
-	          null,
-	          'Awaiting AJAX request'
+	          'h3',
+	          { className: 'no-results-message' },
+	          'No results matched your search'
 	        );
 	      }
 	    }
@@ -45162,7 +45169,7 @@
 
 
 	// module
-	exports.push([module.id, "* {\n  font-family: 'Roboto', sans-serif;\n}\n\nbody {\n  background-color: #3C4040;\n}\n\n.container {\n  padding-left: 100px;\n  padding-right: 100px;\n}\n\nh2, h4, p, li  {\n  font-weight: 300;\n}\n\na {\n  color: black;\n}\n\nli {\n  text-align: left;\n}\n\n/* navbar */\n\n.navbar {\n  background-color: #f4f4f4;\n  border-radius: 0;\n  border-left: none;\n  border-right: none;\n  margin-bottom: 0;\n}\n\n.navbar-default .navbar-brand {\n  color: black;\n  font-weight: 300;\n}\n\nnav.navbar.navbar-default {\n  background-color: #70dde6;\n}\n\n.nav {\n  padding-bottom: 50px;\n}\n\na.navbar-brand {\n  font-size: x-large;\n}\n\n.search-bar {\n  background-color: #f4f4f4;\n  position: absolute;\n  right: 100px;\n  padding-left: 15px;\n  padding-right: 30px;\n}\n\n/* buttons */\n\n.details-button {\n  position: relative;\n  top: 25px;\n}\n\na:hover {\n  color: #3C4040;\n  text-decoration: none;\n}\n\n.job-buttons {\n  display: block;\n  max-width: 135px;\n  margin: 5px auto 0;\n}\n\n/* job listings */\n\n.job-title {\n  margin: 0 auto;\n}\n\n.job-listing {\n  background: #f4f4f4;\n  border-radius: 10px;\n  padding: 15px;\n  margin: 30px 0;\n}\n\n.content {\n  background-color: #70dde6;\n  border-radius: 10px;\n  height: 100%;\n  margin: 10px 0;\n  min-height: 100px;\n  padding: 10px;\n  text-align: center;\n}\n\n.content p {\n  margin: 0;\n}\n\n.description {\n  text-align: left;\n  padding: 10px;\n}\n\n.technologies-list {\n  display: inline-block;\n}\n\n.column {\n  padding: 0 5px;\n}\n\n/* media queries */\n\n@media screen and (min-width: 768px) {\n  .container {\n    width: auto;\n  }\n}\n", ""]);
+	exports.push([module.id, "* {\n  font-family: 'Roboto', sans-serif;\n}\n\n.container {\n  padding-left: 100px;\n  padding-right: 100px;\n}\n\nh2, h4, p, li  {\n  font-weight: 300;\n}\n\na {\n  color: black;\n}\n\nli {\n  text-align: left;\n}\n\n/* navbar */\n\n.navbar {\n  background-color: #f4f4f4;\n  border-radius: 0;\n  margin-bottom: 0;\n}\n\n.navbar-default .navbar-brand {\n  color: black;\n  font-weight: 300;\n}\n\nnav.navbar.navbar-default {\n  background-color: #70dde6;\n}\n\n.nav {\n  padding-bottom: 50px;\n}\n\na.navbar-brand {\n  font-size: x-large;\n}\n\n.search-bar {\n  width: 200px;\n  text-align: center;\n  margin: auto;\n  border-radius: 10px;\n  margin-top: 29px;\n}\n\n/* buttons */\n\n.details-button {\n  position: relative;\n  top: 25px;\n}\n\na:hover {\n  color: #3C4040;\n  text-decoration: none;\n}\n\n.job-buttons {\n  display: block;\n  max-width: 135px;\n  margin: 5px auto 0;\n}\n\n/* job listings */\n\n.job-title {\n  margin: 0 auto;\n  font-weight: 300;\n}\n\n.job-listing {\n  background: #f4f4f4;\n  border-radius: 10px;\n  padding: 15px;\n  margin: 30px 0;\n}\n\n.content {\n  background-color: #70dde6;\n  border-radius: 10px;\n  height: 100%;\n  margin: 10px 0;\n  min-height: 100px;\n  padding: 10px;\n  text-align: center;\n}\n\n.content p {\n  margin: 0;\n}\n\n.description {\n  text-align: left;\n  padding: 10px;\n}\n\n.technologies-list {\n  display: inline-block;\n}\n\n.column {\n  padding: 0 5px;\n}\n\n.navbar-right {\n  float: right!important;\n  margin-right: -15px;\n  padding: 15px;\n  padding-right: 55px;\n}\n/* media queries */\n@media screen and (min-width: 768px) {\n  .container {\n    width: auto;\n  }\n}\n\n.no-results-message {\n  text-align: center;\n  font-weight: 300;\n}\n", ""]);
 
 	// exports
 
