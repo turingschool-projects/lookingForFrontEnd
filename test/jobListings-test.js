@@ -23,47 +23,32 @@ const jobsArray = [
 
 
 describe('<JobListings />', () => {
-  it('jobs should call props of undefined', () => {
-    const wrapper = shallow(<JobListings />);
-    expect(wrapper.props().jobs).to.equal(undefined);
+  it('returns no results matched your search', () => {
+    const wrapper = shallow(<JobListings jobs="" />);
+    expect(wrapper.html()).to.equal(
+      '<h3 class="no-results-message">No results matched your search</h3>'
+    );
   });
 
-  //it('returns Awaiting Ajax request when jobs is undefined', () => {
-    //const wrapper = shallow(<JobListings />);
-    //expect(wrapper.html()).to.equal(
-      //'<div>Awaiting AJAX request</div>'
-    //);
-  //});
+  it('fullListings defaults to false', () => {
+    const wrapper = shallow(<JobListings jobs={jobsArray}/>);
+    expect(wrapper).to.have.length(1)
+    const jobs = wrapper.props().children
+    expect(jobs[0].props.fullListing).to.equal(false);
+  })
 
-  //it('has two jobs', () => {
-    //const wrapper = shallow(<JobListings />);
-    //wrapper.setProps({jobs: jobsArray});
-    //expect(wrapper.props().children).to.have.length(2);
-  //})
+  it('job has a title', () => {
+    const wrapper = shallow(<JobListings jobs={jobsArray} />);
+    const jobs = wrapper.props().children
+    expect(jobs[0].props.job.title).to.equal('job1');
+    expect(jobs[1].props.job.title).to.equal('job2');
+  });
 
-  //it('returns the key values of each job', () => {
-    //const wrapper = shallow(<JobListings />);
-    //wrapper.setProps({jobs: jobsArray});
-    //const jobs = wrapper.props().children
-    //expect(jobs[0].key).to.equal('1')
-    //expect(jobs[1].key).to.equal('2')
-  //});
-
-  //it('fullListing defaults to false', () => {
-    //const wrapper = shallow(<JobListings />);
-    //wrapper.setProps({jobs: jobsArray});
-    //const jobs = wrapper.props().children
-    //console.log(jobs[0].props.job.title)
-    //expect(jobs[0].props.fullListing).to.equal(false);
-  //});
-
-  //it('job has a title', () => {
-    //const wrapper = shallow(<JobListings />);
-    //wrapper.setProps({jobs: jobsArray});
-    //const jobs = wrapper.props().children
-    //expect(jobs[0].props.job.title).to.equal('job1');
-    //expect(jobs[1].props.job.title).to.equal('job2');
-  //});
-
+  it('returns the key values of each job', () => {
+    const wrapper = shallow(<JobListings jobs={jobsArray} />);
+    const jobs = wrapper.props().children
+    expect(jobs[0].key).to.equal('1')
+    expect(jobs[1].key).to.equal('2')
+  });
 });
 
