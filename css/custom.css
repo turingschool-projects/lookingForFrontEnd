@@ -48,7 +48,7 @@ a.navbar-brand {
   width: 300px;
 }
 
-.search-bar-input {
+#search-bar-input {
   width: 300px;
   margin-left: 63px;
 }
