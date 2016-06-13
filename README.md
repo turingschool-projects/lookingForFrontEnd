@@ -4,9 +4,9 @@
 
 #### About
 
-A job search engine for developers that renders postings from  We Work Remotely, Stack Overflow and Authentic Jobs. Users can search jobs by location, tech stack, or view all jobs posted within the last two months. API calls to.
+A job search engine for developers that renders postings from  We Work Remotely, Stack Overflow and Authentic Jobs. Users can search jobs by location, tech stack, or view all jobs posted within the last two months. Job objects are served from back end Rails API at http://lookingforme.herokuapp.com 
 
-#### API calls
+#### Example API calls to back end app
 
 - Recent job postings:
 
