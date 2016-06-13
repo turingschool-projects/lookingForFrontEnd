@@ -7,7 +7,7 @@
   padding-right: 100px;
 }
 
-h2, h4, p, li  {
+h2, h3, h4, p, li  {
   font-weight: 300;
 }
 
@@ -45,10 +45,10 @@ a.navbar-brand {
 }
 
 .find-jobs-button {
-  width: 300px;
+  width: 150px;
 }
 
-.search-bar-input {
+#search-bar-input {
   width: 300px;
   margin-left: 63px;
 }
@@ -61,6 +61,39 @@ a.navbar-brand {
   border-radius: 10px;
   margin-top: 29px;
   padding: 15px;
+}
+
+/* footer */
+
+.footer {
+  background-color: #70dde6;
+  border-top: 1px solid #e7e7e7;
+  bottom: 0;
+  height: 50px;
+  left: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.pagination {
+  margin: 7px 0;
+  position: absolute;
+  right: 100px;
+}
+
+.pagination>li>a {
+  color: #70dde6;
+}
+
+.pagination > li > a:hover {
+  color: #3C4040;
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover {
+  background-color: #3C4040;
+  border-color: #3C4040;
 }
 
 /* buttons */
