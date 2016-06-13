@@ -23,7 +23,7 @@ describe('<JobShow />', () => {
 
   it('returns Awaiting for Ajax when job is undefined', () => {
     const wrapper = shallow(<JobShow />);
-    expect(wrapper.props().children).to.equal('Awaiting AJAX request');
+    expect(wrapper.props().children).to.equal('Loading...');
   });
 
   it('jobListing is set to true', () => {

@@ -26,7 +26,7 @@ describe('<JobListings />', () => {
   it('returns no results matched your search', () => {
     const wrapper = shallow(<JobListings jobs="" />);
     expect(wrapper.html()).to.equal(
-      '<h3 class="no-results-message">No results matched your search</h3>'
+      '<h3 class="no-results-message">No results match your search</h3>'
     );
   });
 

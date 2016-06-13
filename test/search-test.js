@@ -14,19 +14,12 @@ describe('<SearchBar />', () => {
 
   it('should have a button', () => {
     const wrapper = shallow(<SearchBar />);
-    expect(wrapper.find('Button')).to.have.length(1);
+    expect(wrapper.find('Button')).to.have.length(2);
   });
 
   it('contains a class of search-bar', () => {
     const wrapper = shallow(<SearchBar />);
     expect(wrapper.find('.search-bar').hasClass('search-bar')).to.equal(true);
-  });
-
-  it('handles a click event SendLocationRequest', () => {
-    sinon.spy(SearchBar.prototype, 'SendLocationRequest');
-    const wrapper = mount(<SearchBar />);
-    wrapper.find('.find-jobs-button').simulate('click')
-    expect(SearchBar.prototype.SendLocationRequest.calledOnce).to.equal(true);
   });
 
   it('should have props for jobListings', () => {
