@@ -6,7 +6,7 @@ import sinon from 'sinon';
 import TestUtils from "react-addons-test-utils";
 
 import JobListings from '../lib/components/JobListings';
-import Job from '../lib/components/Job';
+import JobListItem from '../lib/components/JobListItem';
 
 
 const jobsArray = [
@@ -30,13 +30,6 @@ describe('<JobListings />', () => {
     );
   });
 
-  it('fullListings defaults to false', () => {
-    const wrapper = shallow(<JobListings jobs={jobsArray}/>);
-    expect(wrapper).to.have.length(1)
-    const jobs = wrapper.props().children
-    expect(jobs[0].props.fullListing).to.equal(false);
-  })
-
   it('job has a title', () => {
     const wrapper = shallow(<JobListings jobs={jobsArray} />);
     const jobs = wrapper.props().children
@@ -51,4 +44,3 @@ describe('<JobListings />', () => {
     expect(jobs[1].key).to.equal('2')
   });
 });
-
