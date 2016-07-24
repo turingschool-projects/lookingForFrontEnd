@@ -34,4 +34,3 @@ describe('<SearchBar />', () => {
     expect(wrapper.state('jobs')).to.equal(jobsArray);
   });
 });
-
