@@ -55121,7 +55121,7 @@
 
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(JobListings).call(this));
 
-	    _this.state = { jobs: {}, activePage: 1 };
+	    _this.state = { jobs: [], activePage: 1 };
 	    return _this;
 	  }
 
@@ -55136,7 +55136,7 @@
 	      var _this2 = this;
 
 	      $.getJSON('https://lookingforme.herokuapp.com/api/v1/recent_jobs?page=' + this.state.activePage, function (response) {
-	        _this2.setState({ jobs: response, lastCall: "all" });
+	        _this2.setState({ jobs: response.recent_jobs, lastCall: "all" });
 	      });
 	    }
 	  }, {
@@ -55166,8 +55166,8 @@
 	    key: 'render',
 	    value: function render() {
 	      var recentJobs = this.state.jobs.recent_jobs;
-	      if (!$.isEmptyObject(this.state.jobs)) {
-	        debugger;
+	      if (this.state.jobs.length > 0) {
+
 	        return _react2.default.createElement(
 	          'div',
 	          null,
@@ -55181,7 +55181,7 @@
 	            'Search Results'
 	          ),
 	          recentJobs !== undefined ? _react2.default.createElement(JobListings, { jobs: recentJobs }) : recentJobs !== undefined ? _react2.default.createElement(JobListings, { jobs: recentJobs }) : "Loading...",
-	          this.props.jobs.map(function (job) {
+	          this.state.jobs.map(function (job) {
 	            return _react2.default.createElement(_JobListItem2.default, { key: job.id, job: job });
 	          })
 	        );
