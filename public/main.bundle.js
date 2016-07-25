@@ -54949,7 +54949,7 @@
 	          'div',
 	          { className: 'container' },
 	          _react2.default.createElement(_SearchBar2.default, null),
-	          _react2.default.createElement(_Joblistings2.default, { activePage: this.activePage, lastCall: this.lastCall })
+	          _react2.default.createElement(_Joblistings2.default, { lastCall: this.lastCall })
 	        )
 	      );
 	    }
@@ -55093,6 +55093,8 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+	var _reactBootstrap = __webpack_require__(159);
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
@@ -55119,7 +55121,7 @@
 
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(JobListings).call(this));
 
-	    _this.state = { jobs: {} };
+	    _this.state = { jobs: {}, activePage: 1 };
 	    return _this;
 	  }
 
@@ -55164,7 +55166,8 @@
 	    key: 'render',
 	    value: function render() {
 	      var recentJobs = this.state.jobs.recent_jobs;
-	      if (this.state.jobs.length > 0) {
+	      if (!$.isEmptyObject(this.state.jobs)) {
+	        debugger;
 	        return _react2.default.createElement(
 	          'div',
 	          null,
@@ -55192,7 +55195,7 @@
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'footer' },
-	        _react2.default.createElement(Pagination, {
+	        _react2.default.createElement(_reactBootstrap.Pagination, {
 	          prev: true,
 	          next: true,
 	          first: true,
