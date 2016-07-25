@@ -62,17 +62,13 @@
 
 	var _JobShow2 = _interopRequireDefault(_JobShow);
 
-	var _JobIndex = __webpack_require__(493);
+	var _JobIndex = __webpack_require__(492);
 
 	var _JobIndex2 = _interopRequireDefault(_JobIndex);
 
-	var _helpers = __webpack_require__(491);
-
-	var _helpers2 = _interopRequireDefault(_helpers);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	__webpack_require__(497);
+	__webpack_require__(496);
 
 
 	var routes = _react2.default.createElement(
@@ -80,7 +76,7 @@
 	  { history: _reactRouter.browserHistory },
 	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _JobIndex2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/jobs/:jobId', component: _JobShow2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '*', component: _helpers2.default.notFound })
+	  _react2.default.createElement(_reactRouter.Route, { path: '*', component: _JobIndex2.default })
 	);
 
 	_reactDom2.default.render(routes, document.getElementById('application'));
@@ -44703,7 +44699,7 @@
 
 	var _JobDetail2 = _interopRequireDefault(_JobDetail);
 
-	var _jquery = __webpack_require__(492);
+	var _jquery = __webpack_require__(491);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
@@ -44858,10 +44854,6 @@
 
 	var _Technology2 = _interopRequireDefault(_Technology);
 
-	var _helpers = __webpack_require__(491);
-
-	var _helpers2 = _interopRequireDefault(_helpers);
-
 	var _reactRouter = __webpack_require__(423);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -44872,6 +44864,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	// import Job from './Job';
+
+	// import helpers from '../helpers';
 
 
 	// import $ from 'jquery';
@@ -45078,32 +45072,6 @@
 
 /***/ },
 /* 491 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
-
-	var helpers = {
-	  notFound: function notFound(_ref) {
-	    _objectDestructuringEmpty(_ref);
-
-	    return React.createElement(
-	      "h1",
-	      null,
-	      "Not Found!"
-	    );
-	  }
-	};
-
-	exports.default = helpers;
-
-/***/ },
-/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -54923,7 +54891,7 @@
 
 
 /***/ },
-/* 493 */
+/* 492 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54942,9 +54910,13 @@
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _SearchBarAndListings = __webpack_require__(494);
+	var _SearchBar = __webpack_require__(493);
 
-	var _SearchBarAndListings2 = _interopRequireDefault(_SearchBarAndListings);
+	var _SearchBar2 = _interopRequireDefault(_SearchBar);
+
+	var _Joblistings = __webpack_require__(494);
+
+	var _Joblistings2 = _interopRequireDefault(_Joblistings);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -54962,7 +54934,7 @@
 
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(JobIndex).call(this));
 
-	    _this.state = { activePage: 1 };
+	    _this.state = { activePage: 1, lastCall: "all" };
 	    return _this;
 	  }
 
@@ -54976,7 +54948,8 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'container' },
-	          _react2.default.createElement(_SearchBarAndListings2.default, null)
+	          _react2.default.createElement(_SearchBar2.default, null),
+	          _react2.default.createElement(_Joblistings2.default, { activePage: this.activePage, lastCall: this.lastCall })
 	        )
 	      );
 	    }
@@ -54990,7 +54963,7 @@
 	exports.default = JobIndex;
 
 /***/ },
-/* 494 */
+/* 493 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55007,10 +54980,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _JobListings = __webpack_require__(495);
-
-	var _JobListings2 = _interopRequireDefault(_JobListings);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -55019,35 +54988,18 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var $ = __webpack_require__(492);
+	var $ = __webpack_require__(491);
 
-	var SearchBarAndListings = function (_React$Component) {
-	  _inherits(SearchBarAndListings, _React$Component);
+	var SearchBar = function (_React$Component) {
+	  _inherits(SearchBar, _React$Component);
 
-	  function SearchBarAndListings() {
-	    _classCallCheck(this, SearchBarAndListings);
+	  function SearchBar() {
+	    _classCallCheck(this, SearchBar);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SearchBarAndListings).call(this));
-
-	    _this.state = { jobs: {}, inputValue: "", activePage: 1, lastCall: "all" };
-	    return _this;
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(SearchBar).call(this));
 	  }
 
-	  _createClass(SearchBarAndListings, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      this.getAllRecentJobs();
-	    }
-	  }, {
-	    key: 'getAllRecentJobs',
-	    value: function getAllRecentJobs() {
-	      var _this2 = this;
-
-	      $.getJSON('https://lookingforme.herokuapp.com/api/v1/recent_jobs?page=' + this.state.activePage, function (response) {
-	        _this2.setState({ jobs: response, lastCall: "all" });
-	      });
-	    }
-	  }, {
+	  _createClass(SearchBar, [{
 	    key: 'handleAllJobsClick',
 	    value: function handleAllJobsClick() {
 	      this.setState({
@@ -55096,6 +55048,96 @@
 	      return techSearch;
 	    }
 	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'search-bar' },
+	          _react2.default.createElement(
+	            _reactBootstrap.FormGroup,
+	            null,
+	            _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text', placeholder: 'Search jobs by location or technology', id: 'search-bar-input', onChange: this.handleInputChange.bind(this), onKeyUp: this.checkReturn.bind(this) })
+	          ),
+	          _react2.default.createElement(
+	            _reactBootstrap.Button,
+	            { className: 'find-jobs-button', type: 'submit', onClick: this.sendSearchQuery.bind(this) },
+	            'Search by filter'
+	          ),
+	          _react2.default.createElement(
+	            _reactBootstrap.Button,
+	            { className: 'find-jobs-button', type: 'submit', onClick: this.handleAllJobsClick.bind(this) },
+	            'See all jobs'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return SearchBar;
+	}(_react2.default.Component);
+
+	exports.default = SearchBar;
+
+/***/ },
+/* 494 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _JobListItem = __webpack_require__(495);
+
+	var _JobListItem2 = _interopRequireDefault(_JobListItem);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var $ = __webpack_require__(491);
+
+	var JobListings = function (_React$Component) {
+	  _inherits(JobListings, _React$Component);
+
+	  function JobListings() {
+	    _classCallCheck(this, JobListings);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(JobListings).call(this));
+
+	    _this.state = { jobs: {} };
+	    return _this;
+	  }
+
+	  _createClass(JobListings, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.getAllRecentJobs();
+	    }
+	  }, {
+	    key: 'getAllRecentJobs',
+	    value: function getAllRecentJobs() {
+	      var _this2 = this;
+
+	      $.getJSON('https://lookingforme.herokuapp.com/api/v1/recent_jobs?page=' + this.state.activePage, function (response) {
+	        _this2.setState({ jobs: response, lastCall: "all" });
+	      });
+	    }
+	  }, {
 	    key: 'getFilteredJobs',
 	    value: function getFilteredJobs(parameter, searchInput) {
 	      var _this3 = this;
@@ -55122,33 +55164,11 @@
 	    key: 'render',
 	    value: function render() {
 	      var recentJobs = this.state.jobs.recent_jobs;
-
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'search-bar' },
-	          _react2.default.createElement(
-	            _reactBootstrap.FormGroup,
-	            null,
-	            _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text', placeholder: 'Search jobs by location or technology', id: 'search-bar-input', onChange: this.handleInputChange.bind(this), onKeyUp: this.checkReturn.bind(this) })
-	          ),
-	          _react2.default.createElement(
-	            _reactBootstrap.Button,
-	            { className: 'find-jobs-button', type: 'submit', onClick: this.sendSearchQuery.bind(this) },
-	            'Search by filter'
-	          ),
-	          _react2.default.createElement(
-	            _reactBootstrap.Button,
-	            { className: 'find-jobs-button', type: 'submit', onClick: this.handleAllJobsClick.bind(this) },
-	            'See all jobs'
-	          )
-	        ),
-	        _react2.default.createElement(
+	      if (this.state.jobs.length > 0) {
+	        return _react2.default.createElement(
 	          'div',
 	          null,
-	          this.state.lastCall === "all" ? _react2.default.createElement(
+	          this.props.lastCall === "all" ? _react2.default.createElement(
 	            'h3',
 	            null,
 	            ' Latest Jobs '
@@ -55157,75 +55177,7 @@
 	            null,
 	            'Search Results'
 	          ),
-	          recentJobs !== undefined ? _react2.default.createElement(_JobListings2.default, { jobs: recentJobs }) : recentJobs !== undefined ? _react2.default.createElement(_JobListings2.default, { jobs: recentJobs }) : "Loading..."
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'footer' },
-	          _react2.default.createElement(_reactBootstrap.Pagination, {
-	            prev: true,
-	            next: true,
-	            first: true,
-	            last: true,
-	            ellipsis: true,
-	            items: 30,
-	            maxButtons: 5,
-	            activePage: this.state.activePage,
-	            onSelect: this.handlePageSelect.bind(this) })
-	        )
-	      );
-	    }
-	  }]);
-
-	  return SearchBarAndListings;
-	}(_react2.default.Component);
-
-	exports.default = SearchBarAndListings;
-
-/***/ },
-/* 495 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _JobListItem = __webpack_require__(496);
-
-	var _JobListItem2 = _interopRequireDefault(_JobListItem);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var JobListings = function (_React$Component) {
-	  _inherits(JobListings, _React$Component);
-
-	  function JobListings() {
-	    _classCallCheck(this, JobListings);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(JobListings).call(this));
-	  }
-
-	  _createClass(JobListings, [{
-	    key: 'render',
-	    value: function render() {
-	      if (this.props.jobs.length > 0) {
-	        return _react2.default.createElement(
-	          'div',
-	          null,
+	          recentJobs !== undefined ? _react2.default.createElement(JobListings, { jobs: recentJobs }) : recentJobs !== undefined ? _react2.default.createElement(JobListings, { jobs: recentJobs }) : "Loading...",
 	          this.props.jobs.map(function (job) {
 	            return _react2.default.createElement(_JobListItem2.default, { key: job.id, job: job });
 	          })
@@ -55237,6 +55189,20 @@
 	          'No results match your search'
 	        );
 	      }
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'footer' },
+	        _react2.default.createElement(Pagination, {
+	          prev: true,
+	          next: true,
+	          first: true,
+	          last: true,
+	          ellipsis: true,
+	          items: 30,
+	          maxButtons: 5,
+	          activePage: this.props.activePage,
+	          onSelect: this.handlePageSelect.bind(this) })
+	      );
 	    }
 	  }]);
 
@@ -55246,7 +55212,7 @@
 	exports.default = JobListings;
 
 /***/ },
-/* 496 */
+/* 495 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -55265,10 +55231,6 @@
 
 	var _Technology2 = _interopRequireDefault(_Technology);
 
-	var _helpers = __webpack_require__(491);
-
-	var _helpers2 = _interopRequireDefault(_helpers);
-
 	var _reactRouter = __webpack_require__(423);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -55278,6 +55240,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	// import helpers from '../helpers';
+
 
 	var JobListItem = function (_React$Component) {
 	  _inherits(JobListItem, _React$Component);
@@ -55363,16 +55327,16 @@
 	exports.default = JobListItem;
 
 /***/ },
-/* 497 */
+/* 496 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(498);
+	var content = __webpack_require__(497);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(500)(content, {});
+	var update = __webpack_require__(499)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -55389,10 +55353,10 @@
 	}
 
 /***/ },
-/* 498 */
+/* 497 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(499)();
+	exports = module.exports = __webpack_require__(498)();
 	// imports
 
 
@@ -55403,7 +55367,7 @@
 
 
 /***/ },
-/* 499 */
+/* 498 */
 /***/ function(module, exports) {
 
 	/*
@@ -55459,7 +55423,7 @@
 
 
 /***/ },
-/* 500 */
+/* 499 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
