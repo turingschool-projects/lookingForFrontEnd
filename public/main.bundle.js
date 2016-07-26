@@ -54939,6 +54939,15 @@
 	  }
 
 	  _createClass(JobIndex, [{
+	    key: 'getFilteredJobs',
+	    value: function getFilteredJobs(parameter, searchInput) {
+	      var _this2 = this;
+
+	      $.getJSON('https://lookingforme.herokuapp.com/api/v1/recent_jobs?' + parameter + '=' + searchInput + '&page=' + this.state.activePage, function (response) {
+	        _this2.setState({ jobs: response, lastCall: parameter });
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -54948,8 +54957,8 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'container' },
-	          _react2.default.createElement(_SearchBar2.default, null),
-	          _react2.default.createElement(_Joblistings2.default, { lastCall: this.lastCall })
+	          _react2.default.createElement(_SearchBar2.default, { getFilteredJobs: this.getFilteredJobs.bind(this) }),
+	          _react2.default.createElement(_Joblistings2.default, { jobs: this.jobs, lastCall: this.lastCall })
 	        )
 	      );
 	    }
@@ -55031,7 +55040,7 @@
 	      this.setState({
 	        activePage: 1
 	      }, function () {
-	        techSearch ? this.getFilteredJobs("technology", searchInput) : this.getFilteredJobs("location", searchInput);
+	        techSearch ? this.props.getFilteredJobs("technology", searchInput) : this.getFilteredJobs("location", searchInput);
 	      });
 	    }
 	  }, {
@@ -55140,24 +55149,16 @@
 	      });
 	    }
 	  }, {
-	    key: 'getFilteredJobs',
-	    value: function getFilteredJobs(parameter, searchInput) {
-	      var _this3 = this;
-
-	      $.getJSON('https://lookingforme.herokuapp.com/api/v1/recent_jobs?' + parameter + '=' + searchInput + '&page=' + this.state.activePage, function (response) {
-	        _this3.setState({ jobs: response, lastCall: parameter });
-	      });
-	    }
-	  }, {
 	    key: 'handlePageSelect',
 	    value: function handlePageSelect(eventKey) {
+	      console.log('eventKey:', eventKey);
 	      this.setState({
 	        activePage: eventKey
 	      }, function () {
-	        if (this.state.lastCall === "all") {
+	        if (this.props.lastCall === "all") {
 	          this.getAllRecentJobs();
 	        } else {
-	          this.getFilteredJobs(this.state.lastCall, this.state.inputValue);
+	          this.props.getFilteredJobs(this.props.lastCall, this.state.inputValue);
 	        }
 	        window.scrollTo(0, 0);
 	      });
@@ -55167,7 +55168,6 @@
 	    value: function render() {
 	      var recentJobs = this.state.jobs.recent_jobs;
 	      if (this.state.jobs.length > 0) {
-
 	        return _react2.default.createElement(
 	          'div',
 	          null,
@@ -55180,7 +55180,7 @@
 	            null,
 	            'Search Results'
 	          ),
-	          recentJobs !== undefined ? _react2.default.createElement(JobListings, { jobs: recentJobs }) : recentJobs !== undefined ? _react2.default.createElement(JobListings, { jobs: recentJobs }) : "Loading...",
+	          !recentJobs ? "Loading..." : "",
 	          this.state.jobs.map(function (job) {
 	            return _react2.default.createElement(_JobListItem2.default, { key: job.id, job: job });
 	          })
