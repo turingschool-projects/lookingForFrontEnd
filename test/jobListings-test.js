@@ -8,7 +8,6 @@ import TestUtils from "react-addons-test-utils";
 import JobListings from '../lib/components/JobListings';
 import JobListItem from '../lib/components/JobListItem';
 
-
 const jobsArray = [
   { id: 1, title: "job1", description: "descption1", url: "url1",
     location: "location1", posted_date: "date1", remote: false,
@@ -23,26 +22,28 @@ const jobsArray = [
 
 
 describe('<JobListings />', () => {
-  xit('returns no results matched your search', () => {
+  it('returns no results matched your search', () => {
     const wrapper = shallow(<JobListings jobs="" />);
     expect(wrapper.html()).to.equal(
       '<h3 class="no-results-message">No results match your search</h3>'
     );
   });
 
-  xit('job has a title', () => {
-    const wrapper = shallow(<JobListings />);
-    const jobs = wrapper.props().children
-    console.log('line36: jobs=', jobs)
-    console.log('line36: wrapper=', wrapper)
-    expect(jobs[0].props.job.title).to.equal('job1');
-    expect(jobs[1].props.job.title).to.equal('job2');
+  it('job has a title', () => {
+    const wrapper = shallow(<JobListings jobs={jobsArray} />);
+    const job1 = wrapper.props().children[1][0]
+    const job2 = wrapper.props().children[1][1]
+
+    expect(job1.props.job.title).to.equal('job1');
+    expect(job2.props.job.title).to.equal('job2');
   });
 
-  xit('returns the key values of each job', () => {
+  it('returns the key values of each job', () => {
     const wrapper = shallow(<JobListings jobs={jobsArray} />);
-    const jobs = wrapper.props().children
-    expect(jobs[0].key).to.equal('1')
-    expect(jobs[1].key).to.equal('2')
+    const job1 = wrapper.props().children[1][0]
+    const job2 = wrapper.props().children[1][1]
+
+    expect(job1.key).to.equal('1')
+    expect(job2.key).to.equal('2')
   });
 });
