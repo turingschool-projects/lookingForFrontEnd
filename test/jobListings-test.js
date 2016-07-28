@@ -8,7 +8,6 @@ import TestUtils from "react-addons-test-utils";
 import JobListings from '../lib/components/JobListings';
 import JobListItem from '../lib/components/JobListItem';
 
-
 const jobsArray = [
   { id: 1, title: "job1", description: "descption1", url: "url1",
     location: "location1", posted_date: "date1", remote: false,
@@ -32,15 +31,19 @@ describe('<JobListings />', () => {
 
   it('job has a title', () => {
     const wrapper = shallow(<JobListings jobs={jobsArray} />);
-    const jobs = wrapper.props().children
-    expect(jobs[0].props.job.title).to.equal('job1');
-    expect(jobs[1].props.job.title).to.equal('job2');
+    const job1 = wrapper.props().children[1][0]
+    const job2 = wrapper.props().children[1][1]
+
+    expect(job1.props.job.title).to.equal('job1');
+    expect(job2.props.job.title).to.equal('job2');
   });
 
   it('returns the key values of each job', () => {
     const wrapper = shallow(<JobListings jobs={jobsArray} />);
-    const jobs = wrapper.props().children
-    expect(jobs[0].key).to.equal('1')
-    expect(jobs[1].key).to.equal('2')
+    const job1 = wrapper.props().children[1][0]
+    const job2 = wrapper.props().children[1][1]
+
+    expect(job1.key).to.equal('1')
+    expect(job2.key).to.equal('2')
   });
 });
