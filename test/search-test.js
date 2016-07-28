@@ -4,7 +4,7 @@ import {expect} from 'chai';
 import sinon from 'sinon';
 import TestUtils from "react-addons-test-utils";
 
-import SearchBar from '../lib/components/SearchBarAndListings';
+import SearchBar from '../lib/components/SearchBar';
 
 describe('<SearchBar />', () => {
   it('should have an input for search', () => {
@@ -34,4 +34,3 @@ describe('<SearchBar />', () => {
     expect(wrapper.state('jobs')).to.equal(jobsArray);
   });
 });
-
