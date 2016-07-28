@@ -78,7 +78,6 @@
 	var routes = _react2.default.createElement(
 	  _reactRouter.Router,
 	  { history: _reactRouter.browserHistory },
-	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _JobIndex2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/jobs/:jobId', component: _JobShow2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '*', component: _helpers2.default.notFound })
 	);
@@ -44535,7 +44534,7 @@
 
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(JobShow).call(this));
 
-	    _this.state = { job: {} };
+	    _this.state = {};
 	    return _this;
 	  }
 
@@ -44544,7 +44543,7 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 
-	      _jquery2.default.getJSON('https://lookingforme.herokuapp.com/api/v1' + location.pathname, function (response) {
+	      _jquery2.default.getJSON('https://lookingforme.herokuapp.com/api/v1/jobs/' + this.props.params.jobId, function (response) {
 	        _this2.setState({ job: response });
 	      });
 	    }
@@ -44683,10 +44682,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	// import Job from './Job';
-
-
-	// import $ from 'jquery';
 
 	var JobDetail = function (_React$Component) {
 	  _inherits(JobDetail, _React$Component);
