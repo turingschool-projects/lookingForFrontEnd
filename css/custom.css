@@ -40,8 +40,9 @@ nav.navbar.navbar-default {
   padding-bottom: 50px;
 }
 
-a.navbar-brand {
+.navbar-brand a {
   font-size: x-large;
+  margin-right: 30px;
 }
 
 .find-jobs-button {
