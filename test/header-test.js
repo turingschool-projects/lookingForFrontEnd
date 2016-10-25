@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import {expect} from 'chai';
+import { expect } from 'chai';
 import sinon from 'sinon';
 import TestUtils from "react-addons-test-utils";
 
@@ -20,8 +20,7 @@ describe('<Header />', () => {
   });
 
   it('has an <Link> with LookingFor text', () => {
-    const wrapper = shallow(<Header/>);
+    const wrapper == shallow(<Header/>);
     expect(wrapper.html()).to.equal(`<div class="nav"><nav class="navbar-fixed-top navbar navbar-default"><div class="container"><div id="brand" class="navbar-header"><a class="navbar-brand">Looking For</a></div></div></nav></div>`);
   });
 });
-

@@ -28,7 +28,7 @@ describe('<SearchBar />', () => {
   });
 
   it('sets the state of jobs', () => {
-    const jobsArray = ['job1', 'job2', 'job3']
+    const jobsArray = ['job1', 'job2', 'job3'];
     const wrapper = mount(<SearchBar />);
     wrapper.setState({jobs: jobsArray});
     expect(wrapper.state('jobs')).to.equal(jobsArray);
