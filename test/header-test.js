@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import {expect} from 'chai';
+import { expect } from 'chai';
 import sinon from 'sinon';
 import TestUtils from "react-addons-test-utils";
 
