@@ -12,7 +12,7 @@ import $ from 'jquery';
 const job1 = { job: { id: 1, title: "job1", description: "description1", url: "url1",
     location: "location1", posted_date: "date1", remote: false,
     technologies: [ {id: 2, name: "c#"}, ],
-    company: { id: 1, name: "name1" } } }
+    company: { id: 1, name: "name1" } } };
 
 describe('<JobShow />', () => {
   it('should call state when it first mounts', () => {
@@ -28,8 +28,8 @@ describe('<JobShow />', () => {
 
   it('job has a title', () => {
     const wrapper = shallow(<JobShow />);
-    wrapper.setState({ job: job1 })
-    const job = wrapper.props().children[1].props.children.props
+    wrapper.setState({ job: job1 });
+    const job = wrapper.props().children[1].props.children.props;
     expect(job.job.title).to.equal('job1');
     expect(job.job.description).to.equal('description1');
     expect(job.job.id).to.equal(1);

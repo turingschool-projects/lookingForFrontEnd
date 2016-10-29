@@ -18,7 +18,7 @@ const jobsArray = [
       technologies: [ {id: 1, name: ".net"}, ],
       company: { id: 2, name: "name2" }
     }
-]
+];
 
 
 describe('<JobListings />', () => {
