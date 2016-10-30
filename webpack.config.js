@@ -13,6 +13,7 @@ module.exports = {
       { test: /\.css$/, loader: 'style-loader!css-loader' },
     ],
   },
+  externals: ['axious'],
   resolve: {
     extensions: ['', '.js', '.json', '.scss', 'css'],
   },
