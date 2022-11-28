@@ -29,7 +29,7 @@
     "babel-register": "^6.3.13",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.5.0",
-    "css-loader": "^0.15.6",
+    "css-loader": "^0.26.2",
     "enzyme": "^2.3.0",
     "eslint": "1.0.0",
     "eslint-config-airbnb": "^9.0.1",
@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "axios": "^0.14.0",
-    "css-loader": "^0.15.5",
+    "css-loader": "^0.26.2",
     "d3": "3.5.17",
     "express": "^4.13.3",
     "jquery": "^2.2.4",
@@ -58,8 +58,8 @@
     "react-d3": "^0.4.0",
     "react-dom": "^0.14.3",
     "react-router": "^2.4.1",
-    "style-loader": "^0.12.4",
-    "webpack": "^1.12.9"
+    "style-loader": "^0.13.2",
+    "webpack": "^3.0.0"
   },
   "externals": {
     "cheerio": "window",
